@@ -27,12 +27,16 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Generates getters for all fields, a useful toString method, and hashCode and equals implementations that check
- * all non-transient fields. Will also generate setters for all non-final fields, as well as a constructor.
+ * Generates getters for all fields, a useful toString method, and hashCode and
+ * equals implementations that check all non-transient fields. Will also
+ * generate setters for all non-final fields, as well as a constructor.
  * <p>
- * Equivalent to {@code @Getter @Setter @RequiredArgsConstructor @ToString @EqualsAndHashCode}.
+ * Equivalent to
+ * {@code @Getter @Setter @RequiredArgsConstructor @ToString @EqualsAndHashCode}.
  * <p>
- * Complete documentation is found at <a href="http://projectlombok.org/features/Data.html">the project lombok features page for &#64;Data</a>.
+ * Complete documentation is found at <a
+ * href="http://projectlombok.org/features/Data.html">the project lombok
+ * features page for &#64;Data</a>.
  * 
  * @see Getter
  * @see Setter
@@ -41,19 +45,27 @@ import java.lang.annotation.Target;
  * @see EqualsAndHashCode
  * @see lombok.Value
  */
-@Target(ElementType.TYPE)
-@Retention(RetentionPolicy.SOURCE)
-public @interface Data {
+@Target(ElementType.TYPE) @Retention(RetentionPolicy.SOURCE) public @interface Data {
 	/**
-	 * If you specify a static constructor name, then the generated constructor will be private, and
-	 * instead a static factory method is created that other classes can use to create instances.
-	 * We suggest the name: "of", like so:
+	 * If you specify a static constructor name, then the generated constructor
+	 * will be private, and instead a static factory method is created that
+	 * other classes can use to create instances. We suggest the name: "of",
+	 * like so:
 	 * 
 	 * <pre>
-	 *     public @Data(staticConstructor = "of") class Point { final int x, y; }
+	 * public @Data(staticConstructor = &quot;of&quot;) class Point {
+	 * 	final int x, y;
+	 * }
 	 * </pre>
 	 * 
 	 * Default: No static constructor, instead the normal constructor is public.
 	 */
 	String staticConstructor() default "";
+	
+	/**
+	 * Track that object field was changed with field setter after object
+	 * created, annotated class must extend {@link ChangeTracker} class.
+	 * <strong>default: false</strong>
+	 */
+	boolean trackChanges() default false;
 }

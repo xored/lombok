@@ -310,7 +310,7 @@ public class HandleBuilder extends JavacAnnotationHandler<Builder> {
 		String setterName = fluent ? fieldNode.getName() : TransformationsUtil.toSetterName(null, fieldNode.getName(), isBoolean);
 		
 		JavacTreeMaker maker = builderType.getTreeMaker();
-		return HandleSetter.createSetter(Flags.PUBLIC, fieldNode, maker, setterName, chain, source, List.<JCAnnotation>nil(), List.<JCAnnotation>nil());
+		return HandleSetter.createSetter(Flags.PUBLIC, fieldNode, maker, setterName, chain, source, List.<JCAnnotation>nil(), List.<JCAnnotation>nil(), false);
 	}
 	
 	private JavacNode findInnerClass(JavacNode parent, String name) {
