@@ -12,7 +12,7 @@ public abstract class ChangeTracker {
 	
 	private final Set<String> changeMarks = new HashSet<String>();
 	
-	public void markChanged(String name) {
+	protected void markChanged(String name) {
 		changeMarks.add(name);
 	}
 	
