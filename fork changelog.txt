@@ -1,0 +1,23 @@
+For @Data annotation added boolean option 'trackChanges', 
+to use this options class must be inhefited from abstract class lombok.ChangeTracker.
+This option allow to recognize is setter was caller for particular field, after object created.
+
+Example:
+-------
+@Data(trackChanges = true)
+public class Person extends ChangeTracker {
+	private String name;
+	private int age;
+}
+
+...
+Person person = new Person();
+person.setName("Smith");
+System.out.println("Is name changed: " + person.isChanged("name")); // Is name changed: true
+System.out.println("Is age changed: " + person.isChanged("age")); // Is age changed: false
+...
+
+One case of usage: 
+-----------------
+After deserialization of object if field contain default value we can recognize
+is default value was setted explicitly from source or not.
