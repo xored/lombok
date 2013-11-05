@@ -25,18 +25,15 @@ package lombok.core;
  * This class just holds lombok's current version.
  */
 public class Version {
-	// ** CAREFUL ** - this class must always compile with 0 dependencies (it
-	// must not refer to any other sources or libraries).
-	// Note: In 'X.Y.Z', if Z is odd, its a snapshot build built from the
-	// repository, so many different 0.10.3 versions can exist, for example.
+	// ** CAREFUL ** - this class must always compile with 0 dependencies (it must not refer to any other sources or libraries).
+	// Note: In 'X.Y.Z', if Z is odd, its a snapshot build built from the repository, so many different 0.10.3 versions can exist, for example.
 	// Official builds always end in an even number. (Since 0.10.2).
-	private static final String VERSION = "1.12.4x";
+	private static final String VERSION = "1.12.3x";
 	private static final String RELEASE_NAME = "Edgy Guinea Pig";
-	
 //	private static final String RELEASE_NAME = "Angry Butterfly";
 	
 	private Version() {
-		// Prevent instantiation
+		//Prevent instantiation
 	}
 	
 	/**
@@ -60,12 +57,9 @@ public class Version {
 	/**
 	 * Get the current release name.
 	 * 
-	 * The release name is a string (not numbers). Every time a new release has
-	 * a significantly improved feature set, a new release name is given. Thus,
-	 * many versions can carry the same release name. Version bumps and release
-	 * names are not related; if a new version of lombok is entirely backwards
-	 * compatible with a previous one, but also adds many new features, it will
-	 * get only a minor version bump, but also a new release name.
+	 * The release name is a string (not numbers). Every time a new release has a significantly improved feature set, a new release name is given.
+	 * Thus, many versions can carry the same release name. Version bumps and release names are not related; if a new version of lombok is entirely
+	 * backwards compatible with a previous one, but also adds many new features, it will get only a minor version bump, but also a new release name.
 	 */
 	public static String getReleaseName() {
 		return RELEASE_NAME;
