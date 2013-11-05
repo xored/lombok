@@ -1,3 +1,22 @@
+1.12.4x
+Added field @Readonly annotation, it works only for classes with @Data(trackChanges = true), 
+and throw ReadOnlyException while trying to set annotated field.
+
+Example:
+@Data(trackChanges = true)
+public class Person extends ChangeTracker {
+	@ReadOnly
+	private int id;
+	private String name;	
+}
+
+...
+Person person = new Person();
+person.setName("Smith");
+person.setId(123); // throw ReadOnlyException
+...
+
+1.12.3x
 For @Data annotation added boolean option 'trackChanges', 
 to use this options class must be inhefited from abstract class lombok.ChangeTracker.
 This option allow to recognize is setter was caller for particular field, after object created.
