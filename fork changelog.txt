@@ -1,3 +1,25 @@
+1.12.5x
+For fields in classes with @Data(trackChanges = true) supported following annotations: 
+* javax.validation.constraints.NotNull
+If null constrain failed when field set, throws NullCheckException. 
+* javax.validation.constraints.Size (only for String fields)
+If size constrain failed when field set, throws SizeCheckException. 
+
+Usage example:
+-------------
+@Data(trackChanges = true)
+public class Person extends ChangeTracker {
+
+	@NotNull
+	@Size(min = 3, max = 25)
+	private String name;
+	
+	@NotNull
+	private int age;
+}
+
+1.12.3x
+-------
 For @Data annotation added boolean option 'trackChanges', 
 to use this options class must be inhefited from abstract class lombok.ChangeTracker.
 This option allow to recognize is setter was caller for particular field, after object created.

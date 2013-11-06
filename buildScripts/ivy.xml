@@ -45,5 +45,7 @@
 		<dependency org="org.eclipse.custom" name="jdt.ui" rev="3.6.0" conf="eclipseBuild->default; contrib->sources" />
 		<dependency org="org.eclipse.custom" name="equinox.common" rev="3.6.0" conf="eclipseBuild->default; contrib->sources" />
 		<dependency org="org.eclipse.custom" name="osgi" rev="3.6.0" conf="eclipseBuild->default; contrib->sources" />
+		
+		<dependency org="javax.validation" name="validation-api" rev="1.1.0.Final" conf="build->default" />
 	</dependencies>
 </ivy-module>

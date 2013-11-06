@@ -238,8 +238,12 @@ import com.sun.tools.javac.util.Name;
 			JavacNode typeNode = field.up();
 			Name fieldName = removePrefixFromField(field);
 			JCMethodInvocation callMarkChanged = treeMaker.Apply(List.<JCExpression>nil(), 
-					treeMaker.Select(treeMaker.Ident(typeNode.toName("this")), typeNode.toName("markChanged")), 
-					List.<JCExpression>of(treeMaker.Literal(fieldName.toString())));
+					treeMaker.Select(
+							treeMaker.Ident(typeNode.toName("this")), 
+							typeNode.toName("markChanged")), 
+							List.<JCExpression>of(
+									treeMaker.Literal(fieldName.toString()), 
+									treeMaker.Ident(fieldDecl.name)));
 			statements.append(treeMaker.Exec(callMarkChanged));
 		}
 		
